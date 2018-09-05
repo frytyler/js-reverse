@@ -14,6 +14,13 @@ class URLSLibrary {
         this.url_constructor = new Constructor()
     }
 
+    name_is_valid(name) {
+        if(typeof name !== 'string') {
+            throw 'js-reverse: url name must be a string';
+        }
+        return true;
+    }
+
     register(urls) {
         /**
         * Register all urls. 
@@ -31,7 +38,9 @@ class URLSLibrary {
         * @param {Object} args: object with url arguments and its values like {param_one: 1: param_two: "something"}
         */
         // Here we use our ReverseUrl class
-        return this.hostname + this.url_constructor.get(this.urls_all[name], args)
+        if(this.name_is_valid(name)) {
+            return this.hostname + this.url_constructor.get(this.urls_all[name], args)
+        }
     }
 }
 

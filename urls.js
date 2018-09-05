@@ -10,4 +10,4 @@ const urls = {
 
 library.register(urls)
 
-console.log(library.get('first', {'one': 'ONE', 'two': 'TWO', 'three': 'THREE'}));
+console.log(library.get('first', {'one': 2, 'two': 5, 'three': 'THREE'}));
