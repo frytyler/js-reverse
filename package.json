@@ -1,0 +1,24 @@
+{
+  "name": "js-reverse",
+  "version": "1.0.0",
+  "description": "Allows to store urls in one place and get it everywhere you want. Just like in Django.",
+  "main": "urls.js",
+  "dependencies": {},
+  "devDependencies": {
+    "eslint": "^5.5.0",
+    "eslint-config-google": "^0.10.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/srgpdbd/js-reverse.git"
+  },
+  "author": "Sergey Podobed",
+  "license": "GPL",
+  "bugs": {
+    "url": "https://github.com/srgpdbd/js-reverse/issues"
+  },
+  "homepage": "https://github.com/srgpdbd/js-reverse#readme"
+}
