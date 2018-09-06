@@ -1,9 +1,5 @@
 'use strict';
 /**
- * Тут впишу копирайты или ещё что-нибудь
- */
-
-/**
  * URLS constructor. Creates url from wildcard
  */
 class URLConstructor {

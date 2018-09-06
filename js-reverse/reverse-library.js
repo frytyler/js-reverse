@@ -1,7 +1,4 @@
 'use strict';
-/**
- * Тут впишу копирайты или ещё что-нибудь
- */
 const Constructor = require('./reverse-url');
 
 /**
