@@ -4,6 +4,12 @@ Allows to store urls in one place and get it everywhere you want. Just like in D
 
 ## How to use
 
+### Install
+
+```
+yarn add js-reverse
+```
+
 ### Define urls in one place
 
 ```Javascript
