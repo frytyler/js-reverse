@@ -4,9 +4,17 @@ Allows to store urls in one place and get it everywhere you want. Just like in D
 
 ## How to use
 
+### Install
+
+```
+yarn add js-reverse
+```
+
 ### Define urls in one place
 
 ```Javascript
+//urls.js file
+
 const urls = {
     'allImages': '/images/all/',
     'catImage': '/images/<animal>/<id>/',
@@ -18,8 +26,8 @@ module.exports = urls;
 ### Use it everywhere you want
 
 ```Javascript
-const Library = require('./js-reverse/reverse-library');
-const urls = require('./urls');
+import Library from 'js-reverse/js-reverse/reverse-library';
+import urls from 'urls';
 
 const library = new Library('big-cat-database.com');
 library.register(urls);
