@@ -11,7 +11,7 @@ class URLSLibrary {
      */
     constructor(hostname) {
         this.hostname = hostname;
-        this.urls_all = {};
+        this.urlsAll = {};
         this.url_constructor = new Constructor();
     }
 
@@ -28,13 +28,24 @@ class URLSLibrary {
     }
 
     /**
+     * Check if library has urls
+     * @return {bool}: is urls registered?
+     */
+    urlsIsRegistered() {
+        if (!this.urlsAll || !Object.keys(this.urlsAll).length) {
+            throw Error('js-reverse: no urls registered');
+        }
+        return true;
+    }
+
+    /**
      * Register all urls
      * Urls param must be an object with name as a key and wildcard with <> brackets as a value like
      * {url_one: '/home/<param_one>/<param_two>/'}
      * @param {Object} urls: object with url name as a key and wildcard with <> brackets as a value
      */
     register(urls) {
-        this.urls_all = urls;
+        this.urlsAll = urls;
     }
 
     /**
@@ -44,8 +55,8 @@ class URLSLibrary {
      * @return {String}: valid url
      */
     get(name, args) {
-        if (this.nameIsValid(name)) {
-            return this.hostname + this.url_constructor.get(this.urls_all[name], args);
+        if (this.nameIsValid(name) && this.urlsIsRegistered()) {
+            return this.hostname + this.url_constructor.get(this.urlsAll[name], args);
         }
     }
 }
