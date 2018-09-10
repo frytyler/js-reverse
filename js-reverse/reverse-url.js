@@ -8,6 +8,7 @@ class URLConstructor {
      */
     constructor() {
         this.params = {};
+        this.queryString = {};
     }
 
     /**
@@ -17,7 +18,7 @@ class URLConstructor {
      */
     construct(wildcard) {
         let newUrl = '';
-        wildcard.split('/').forEach((part) => {
+        wildcard.split('/').forEach((part, index) => {
             // params in urls is located between <> so this is check if part of url is param
             if (part.startsWith('<') && part.endsWith('>')) {
                 newUrl += this.createWildcardParam(part.slice(1, part.length - 1));
@@ -25,9 +26,25 @@ class URLConstructor {
             else {
                 newUrl += part;
             }
+            // TODO: dont add '/' symbol to the end of url
             newUrl += (newUrl.endsWith('/')) ? '' : '/';
         });
-        return newUrl;
+        return `${newUrl}${this.addQueryString()}`;
+    }
+
+    /**
+     * Add query string for the url using this.queryString attribute
+     * @return {String} newQueryString: query string fir url
+     */
+    addQueryString() {
+        const qsLength = Object.keys(this.queryString).length;
+        let newQueryString = (qsLength) ? '?' : '';
+        Object.keys(this.queryString).forEach((queryKey, index) => {
+            // check if need to add '&' symbol
+            const queryEndsWith = (index == qsLength - 1) ? '' : '&';
+            newQueryString += `${queryKey}=${this.queryString[queryKey]}${queryEndsWith}`;
+        });
+        return newQueryString;
     }
 
     /**
@@ -61,10 +78,13 @@ class URLConstructor {
      * Just get url
      * @param {String} wildcard: url with params names in <> brackets
      * @param {object} params: object with url arguments and its values like {param_one: 1: param_two: "something"}
+     * @param {Object} queryString: query string in the end of the url
      * @return {String}: valid url
      */
-    get(wildcard, params) {
+    get(wildcard, params, queryString) {
         this.params = params;
+        this.queryString = queryString;
+        this.addQueryString();
         return this.construct(wildcard);
     }
 }

@@ -31,10 +31,24 @@ import urls from 'urls';
 
 const library = new Library('big-cat-database.com');
 library.register(urls);
+```
 
+#### Without params in urls
+
+```Javascript
 library.get('allImages');
 // big-cat-database.com/images/all/
+```
 
+#### With params in `<>` brackets
+
+```Javascript
 library.get('catImage', {animal: 'cat', id: 9000});
 // big-cat-database.com/images/cat/9000/
+```
+
+#### With query string
+```Javascript
+library.get('catImage', {animal: 'cat', id: 9000}, {paginateBy: 20, order: 'from_cute_to_ugly'};
+// http://big-cat-database.com/images/cat/9000/?paginateBy=20&order=from_cute_to_ugly
 ```

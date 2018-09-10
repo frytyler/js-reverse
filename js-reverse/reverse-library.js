@@ -52,11 +52,12 @@ class URLSLibrary {
      * Get url from library by name
      * @param {String} name: name of url
      * @param {Object} args: object with url arguments and its values like {param_one: 1: param_two: "something"}
+     * @param {Object} queryString: query string in the end of the url
      * @return {String}: valid url
      */
-    get(name, args) {
+    get(name, args, queryString={}) {
         if (this.nameIsValid(name) && this.urlsIsRegistered()) {
-            return this.hostname + this.urlConstructor.get(this.urlsAll[name], args);
+            return this.hostname + this.urlConstructor.get(this.urlsAll[name], args, queryString);
         }
     }
 }
