@@ -1,6 +1,6 @@
 {
   "name": "js-reverse",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Allows to store urls in one place and get it everywhere you want. Just like in Django.",
   "main": "urls.js",
   "dependencies": {},

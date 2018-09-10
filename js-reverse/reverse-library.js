@@ -12,7 +12,7 @@ class URLSLibrary {
     constructor(hostname) {
         this.hostname = hostname;
         this.urlsAll = {};
-        this.url_constructor = new Constructor();
+        this.urlConstructor = new Constructor();
     }
 
     /**
@@ -56,7 +56,7 @@ class URLSLibrary {
      */
     get(name, args) {
         if (this.nameIsValid(name) && this.urlsIsRegistered()) {
-            return this.hostname + this.url_constructor.get(this.urlsAll[name], args);
+            return this.hostname + this.urlConstructor.get(this.urlsAll[name], args);
         }
     }
 }
