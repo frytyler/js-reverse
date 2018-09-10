@@ -26,7 +26,6 @@ class URLConstructor {
             else {
                 newUrl += part;
             }
-            // TODO: dont add '/' symbol to the end of url
             newUrl += (newUrl.endsWith('/')) ? '' : '/';
         });
         return `${newUrl}${this.addQueryString()}`;
