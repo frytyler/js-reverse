@@ -83,7 +83,6 @@ class URLConstructor {
     get(wildcard, params, queryString) {
         this.params = params;
         this.queryString = queryString;
-        this.addQueryString();
         return this.construct(wildcard);
     }
 }
