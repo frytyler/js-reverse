@@ -49,6 +49,6 @@ library.get('catImage', {animal: 'cat', id: 9000});
 
 #### With query string
 ```Javascript
-library.get('catImage', {animal: 'cat', id: 9000}, {paginateBy: 20, order: 'from_cute_to_ugly'};
+library.get('catImage', {animal: 'cat', id: 9000}, {paginateBy: 20, order: 'from_cute_to_ugly'});
 // http://big-cat-database.com/images/cat/9000/?paginateBy=20&order=from_cute_to_ugly
 ```
