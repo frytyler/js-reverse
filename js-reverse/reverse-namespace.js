@@ -32,8 +32,15 @@ class NameSpace {
 
 module.exports = NameSpace;
 
-// named_urls = namespace.add('/test/<hello>/ololo/');
+// const Namespace = require('./js-reverse/reverse-namespace');
 
-// library.register(named_urls);
+// const namespace = new Namespace();
 
-// library.get('allImages', {hello: 'world'})
+// const urls = {
+//     allImages: '/images/all/',
+//     catImage: '/images/<animal>/<id>/',
+// };
+
+// const space = namespace.create('/<language>/', urls);
+
+// module.exports = space;
