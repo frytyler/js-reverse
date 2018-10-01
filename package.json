@@ -16,7 +16,7 @@
     "url": "git+https://github.com/srgpdbd/js-reverse.git"
   },
   "author": "Sergey Podobed",
-  "license": "GPL",
+  "license": "GPL-3.0-or-later",
   "bugs": {
     "url": "https://github.com/srgpdbd/js-reverse/issues"
   },
