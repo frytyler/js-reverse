@@ -44,7 +44,7 @@ class URLSLibrary {
      * @return {bool}: url is available?
      */
     nameIsAvailable(name) {
-        if (!this.urlsIsRegistered()) return false
+        if (!this.urlsIsRegistered()) return false;
         if (!Object.keys(this.urlsAll).includes(name)) {
             throw new Error('js-reverse: url name is not registered');
         }
@@ -69,8 +69,15 @@ class URLSLibrary {
      * @return {String}: valid url
      */
     get(name, args, queryString = {}) {
-        if (this.nameIsValid(name) && this.urlsIsRegistered() && this.nameIsAvailable(name)) {
-            return this.hostname + this.urlConstructor.get(this.urlsAll[name], args, queryString);
+        if (
+            this.nameIsValid(name) &&
+            this.urlsIsRegistered() &&
+            this.nameIsAvailable(name)
+        ) {
+            return (
+                this.hostname +
+                this.urlConstructor.get(this.urlsAll[name], args, queryString)
+            );
         }
     }
 }
