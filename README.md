@@ -8,6 +8,8 @@ Allows to store urls in one place and get it everywhere you want. Just like in D
 
 ```
 yarn add js-reverse
+or
+npm install js-reverse
 ```
 
 ### Define urls in one place
@@ -56,4 +58,4 @@ library.get('catImage', {animal: 'cat', id: 9000}, {paginateBy: 20, order: 'from
 
 ### Tests
 
-To run the tests just use `npm run test`. This starts the [Jasmine](https://jasmine.github.io) tests, that are located in the `spec` directory
+To run the tests just use `npm run test` or `yarn test`. This starts the [Jest](https://jestjs.io/) tests, which will run all `*.spec.js` test files.
