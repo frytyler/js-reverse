@@ -39,6 +39,19 @@ class URLSLibrary {
     }
 
     /**
+     * Check if name of url is available and throw error if not
+     * @param {String} name: name of url
+     * @return {bool}: url is available?
+     */
+    nameIsAvailable(name) {
+        if (!this.urlsIsRegistered()) return false
+        if (!Object.keys(this.urlsAll).includes(name)) {
+            throw new Error('js-reverse: url name is not registered');
+        }
+        return true;
+    }
+
+    /**
      * Register all urls
      * Urls param must be an object with name as a key and wildcard with <> brackets as a value like
      * {url_one: '/home/<param_one>/<param_two>/'}
@@ -56,7 +69,7 @@ class URLSLibrary {
      * @return {String}: valid url
      */
     get(name, args, queryString = {}) {
-        if (this.nameIsValid(name) && this.urlsIsRegistered()) {
+        if (this.nameIsValid(name) && this.urlsIsRegistered() && this.nameIsAvailable(name)) {
             return this.hostname + this.urlConstructor.get(this.urlsAll[name], args, queryString);
         }
     }
