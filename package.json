@@ -2,7 +2,7 @@
   "name": "js-reverse",
   "version": "1.1.0",
   "description": "Allows to store urls in one place and get it everywhere you want. Just like in Django.",
-  "main": "urls.js",
+  "main": "index.js",
   "dependencies": {},
   "devDependencies": {
     "eslint": "^5.5.0",
