@@ -52,3 +52,7 @@ library.get('catImage', {animal: 'cat', id: 9000});
 library.get('catImage', {animal: 'cat', id: 9000}, {paginateBy: 20, order: 'from_cute_to_ugly'});
 // http://big-cat-database.com/images/cat/9000/?paginateBy=20&order=from_cute_to_ugly
 ```
+
+### Tests
+
+To run the tests just use `npm run test`. This starts the [Jasmine](https://jasmine.github.io) tests, that are located in the `spec` directory
