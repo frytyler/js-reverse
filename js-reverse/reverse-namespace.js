@@ -3,7 +3,7 @@
 /**
  * TEST
  */
-class NameSpace {
+class Namespace {
     /**
      * Const
      */
@@ -30,7 +30,7 @@ class NameSpace {
     }
 }
 
-module.exports = NameSpace;
+module.exports = Namespace;
 
 // const Namespace = require('./js-reverse/reverse-namespace');
 
