@@ -26,8 +26,8 @@ module.exports = urls;
 ### Use it everywhere you want
 
 ```Javascript
-import Library from 'js-reverse/js-reverse/reverse-library';
-import urls from 'urls';
+import Library from 'js-reverse';
+import urls from './urls';
 
 const library = new Library('big-cat-database.com');
 library.register(urls);
@@ -48,6 +48,7 @@ library.get('catImage', {animal: 'cat', id: 9000});
 ```
 
 #### With query string
+
 ```Javascript
 library.get('catImage', {animal: 'cat', id: 9000}, {paginateBy: 20, order: 'from_cute_to_ugly'});
 // http://big-cat-database.com/images/cat/9000/?paginateBy=20&order=from_cute_to_ugly
