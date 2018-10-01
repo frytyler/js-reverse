@@ -11,7 +11,8 @@ describe("JS Reverse", function () {
           'with-slash': '/path/',
           param: '/<foo>',
           multipleParams: '/<foo>/<id>',
-          empty: ''
+          empty: '',
+          special: '/my-ürl'
         };
         lib = new Library('test.com');
         lib.register(urls);
@@ -33,7 +34,7 @@ describe("JS Reverse", function () {
       expect(lib.get('empty')).toEqual('test.com/');
     });
     it('should handle invalid keys in get', function () {
-      expect(lib.get.bind()).toThrow();
+      expect(lib.get.bind(14)).toThrow();
       expect(lib.get.bind(14)).toThrow();
       expect(lib.get.bind('invalid')).toThrow();
     });
@@ -66,10 +67,13 @@ describe("JS Reverse", function () {
     it('should be able to handle query params', function () {
       expect(lib.get('test', {}, {foo: 'bar'})).toEqual('test.com/my/test/path/?foo=bar');
       expect(lib.get('test', {}, {paginateBy: 20, foo: 'bar'})).toEqual('test.com/my/test/path/?paginateBy=20&foo=bar');
-      expect(lib.get('test', {}, {foo: 'my value'})).toEqual('test.com/my/test/path/?foo=my value');
+      expect(lib.get('test', {}, {foo: 'my value'})).toEqual('test.com/my/test/path/?foo=my%20value');
     });
     it('should be able to handle params and query params at the same time', function () {
       expect(lib.get('param', {foo: 'bar'}, {test: 'success'})).toEqual('test.com/bar/?test=success');
       expect(lib.get('multipleParams', {foo: 'bar', id: 9000}, {paginateBy: 20, foo: 'bar'})).toEqual('test.com/bar/9000/?paginateBy=20&foo=bar');
+    });
+    it('encodes the URL correctly', function () {
+      expect(lib.get('special', {}, { param: 'my param', 'späcial key': 'bar'})).toEqual('test.com/my-%C3%BCrl/?param=my%20param&sp%C3%A4cial%20key=bar');
     });
 });
