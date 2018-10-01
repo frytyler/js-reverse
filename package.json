@@ -6,10 +6,11 @@
   "dependencies": {},
   "devDependencies": {
     "eslint": "^5.5.0",
-    "eslint-config-google": "^0.10.0"
+    "eslint-config-google": "^0.10.0",
+    "jasmine": "^3.2.0"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jasmine"
   },
   "repository": {
     "type": "git",
