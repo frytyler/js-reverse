@@ -16,14 +16,14 @@ class NameSpace {
      * TEST
      */
     addNamespace() {
-        let newUrls = {};
-        Object.keys(this.urls).forEach((key) => {
+        const newUrls = {};
+        Object.keys(this.urls).forEach(key => {
             newUrls[key] = `${this.baseUrl}/${this.urls[key]}`;
         });
         return newUrls;
     }
 
-    create(baseUrl='', urls) {
+    create(baseUrl = '', urls) {
         this.baseUrl = baseUrl;
         this.urls = urls;
         return this.addNamespace();

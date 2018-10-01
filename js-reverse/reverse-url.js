@@ -22,8 +22,7 @@ class URLConstructor {
             // params in urls is located between <> so this is check if part of url is param
             if (part.startsWith('<') && part.endsWith('>')) {
                 newUrl += this.createWildcardParam(part.slice(1, part.length - 1));
-            }
-            else {
+            } else {
                 newUrl += part;
             }
             newUrl += (newUrl.endsWith('/')) ? '' : '/';
@@ -55,8 +54,7 @@ class URLConstructor {
     urlIsValid(paramName) {
         if (paramName && !this.params) {
             throw new Error(`js-reverse: Url contains wildcard called <${paramName}> but not contains params objects`);
-        }
-        else if (!this.params[paramName]) {
+        } else if (!this.params[paramName]) {
             throw new Error(`js-reverse: Url parameter named "${paramName}" is undefined`);
         }
         return true;
