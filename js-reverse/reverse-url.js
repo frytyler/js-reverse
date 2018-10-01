@@ -18,14 +18,16 @@ class URLConstructor {
      */
     construct(wildcard) {
         let newUrl = '';
-        wildcard.split('/').forEach((part, index) => {
+        wildcard.split('/').forEach(part => {
             // params in urls is located between <> so this is check if part of url is param
             if (part.startsWith('<') && part.endsWith('>')) {
-                newUrl += this.createWildcardParam(part.slice(1, part.length - 1));
+                newUrl += this.createWildcardParam(
+                    part.slice(1, part.length - 1)
+                );
             } else {
                 newUrl += part;
             }
-            newUrl += (newUrl.endsWith('/')) ? '' : '/';
+            newUrl += newUrl.endsWith('/') ? '' : '/';
         });
         return `${newUrl}${this.addQueryString()}`;
     }
@@ -36,11 +38,13 @@ class URLConstructor {
      */
     addQueryString() {
         const qsLength = Object.keys(this.queryString).length;
-        let newQueryString = (qsLength) ? '?' : '';
+        let newQueryString = qsLength ? '?' : '';
         Object.keys(this.queryString).forEach((queryKey, index) => {
             // check if need to add '&' symbol
-            const queryEndsWith = (index == qsLength - 1) ? '' : '&';
-            newQueryString += `${queryKey}=${this.queryString[queryKey]}${queryEndsWith}`;
+            const queryEndsWith = index == qsLength - 1 ? '' : '&';
+            newQueryString += `${queryKey}=${
+                this.queryString[queryKey]
+            }${queryEndsWith}`;
         });
         return newQueryString;
     }
@@ -53,9 +57,13 @@ class URLConstructor {
      */
     urlIsValid(paramName) {
         if (paramName && !this.params) {
-            throw new Error(`js-reverse: Url contains wildcard called <${paramName}> but not contains params objects`);
+            throw new Error(
+                `js-reverse: Url contains wildcard called <${paramName}> but not contains params objects`
+            );
         } else if (!this.params[paramName]) {
-            throw new Error(`js-reverse: Url parameter named "${paramName}" is undefined`);
+            throw new Error(
+                `js-reverse: Url parameter named "${paramName}" is undefined`
+            );
         }
         return true;
     }

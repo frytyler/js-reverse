@@ -1,26 +1,31 @@
 {
-  "name": "js-reverse",
-  "version": "1.1.0",
-  "description": "Allows to store urls in one place and get it everywhere you want. Just like in Django.",
-  "main": "index.js",
-  "types": "index.d.ts",
-  "dependencies": {},
-  "devDependencies": {
-    "eslint": "^5.5.0",
-    "eslint-config-google": "^0.10.0",
-    "jasmine": "^3.2.0"
-  },
-  "scripts": {
-    "test": "jasmine"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/srgpdbd/js-reverse.git"
-  },
-  "author": "Sergey Podobed",
-  "license": "GPL-3.0-or-later",
-  "bugs": {
-    "url": "https://github.com/srgpdbd/js-reverse/issues"
-  },
-  "homepage": "https://github.com/srgpdbd/js-reverse#readme"
+    "name": "js-reverse",
+    "version": "1.1.0",
+    "description": "Allows to store urls in one place and get it everywhere you want. Just like in Django.",
+    "main": "index.js",
+    "types": "index.d.ts",
+    "dependencies": {},
+    "devDependencies": {
+        "eslint": "^5.6.1",
+        "eslint-config-google": "^0.10.0",
+        "husky": "^1.1.0",
+        "jasmine": "^3.2.0",
+        "prettier": "^1.14.3",
+        "pretty-quick": "^1.7.0"
+    },
+    "scripts": {
+        "lint": "eslint",
+        "precommit": "pretty-quick",
+        "test": "jasmine"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/srgpdbd/js-reverse.git"
+    },
+    "author": "Sergey Podobed",
+    "license": "GPL-3.0-or-later",
+    "bugs": {
+        "url": "https://github.com/srgpdbd/js-reverse/issues"
+    },
+    "homepage": "https://github.com/srgpdbd/js-reverse#readme"
 }
